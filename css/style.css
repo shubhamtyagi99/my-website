@@ -1,0 +1,290 @@
+/* HEADER BASE */
+.main-header {
+  position: sticky;
+  top: 0;
+  background: #fff;
+  z-index: 999;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.top-bar {
+  background: #00645f;
+  color: #fff;
+  padding: 15px 20px;
+  font-size: 15px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 20px;
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: bold;
+  color: #b5daf3;
+}
+
+.menu {
+  list-style: none;
+  display: flex;
+  gap: 22px;
+  margin: 0;
+  padding: 0;
+}
+
+.menu a {
+  text-decoration: none;
+  font-weight: 500;
+  color: #000;
+}
+
+.quote-btn {
+  background: #00645f;
+  color: #fff;
+  padding: 10px 18px;
+  border-radius: 25px;
+  text-decoration: none;
+}
+
+/* MEGA MENU DESKTOP */
+.has-mega {
+  position: relative;
+}
+
+.mega-menu {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1000px;
+  background: #fff;
+  padding: 30px;
+  display: none;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.has-mega:hover .mega-menu {
+  display: grid;
+}
+
+.mega-column h4 {
+  color: #b5daf3;
+  margin-bottom: 10px;
+}
+
+.mega-column a {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 8px;
+  color: #333;
+}
+
+/* HAMBURGER */
+.hamburger {
+  display: none;
+  font-size: 26px;
+  cursor: pointer;
+}
+
+/* ================= MOBILE ================= */
+@media (max-width: 992px) {
+
+  .hamburger {
+    display: block;
+  }
+
+  nav {
+    position: absolute;
+    top: 110px;
+    left: 0;
+    width: 100%;
+    background: #fff;
+    display: none;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+  }
+
+  nav.active {
+    display: block;
+  }
+
+  .menu {
+    flex-direction: column;
+    padding: 15px;
+  }
+
+  .menu li {
+    padding: 10px 0;
+  }
+
+  .mega-menu {
+    position: static;
+    width: 100%;
+    transform: none;
+    box-shadow: none;
+    grid-template-columns: 1fr;
+    display: none;
+    padding: 15px;
+  }
+
+  .mega-menu.active {
+    display: grid;
+  }
+
+  .quote-btn {
+    display: none;
+  }
+}
+.hero {
+  background: url('../images/hero.jpg') center/cover no-repeat;
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  padding: 0 8%;
+}
+
+.hero-content {
+  max-width: 600px;
+  background: rgba(255,255,255,0.9);
+  padding: 40px;
+  border-radius: 10px;
+}
+
+.hero h1 {
+  font-size: 36px;
+  margin-bottom: 15px;
+  color: #064635;
+}
+
+.hero p {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.btn-primary {
+  background: #b5daf3;
+  color: #fff;
+  padding: 12px 25px;
+  text-decoration: none;
+  border-radius: 30px;
+  display: inline-block;
+}
+.products {
+  padding: 60px 8%;
+  text-align: center;
+}
+
+.products h2 {
+  margin-bottom: 40px;
+  font-size: 32px;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+}
+
+.product-card {
+  background: #fff;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+.contact-section {
+  padding: 60px 8%;
+}
+
+.contact-section h1 {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.contact-section p {
+  margin-bottom: 30px;
+}
+
+.contact-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.contact-form button {
+  background: #b5daf3;
+  color: #fff;
+  border: none;
+  padding: 12px;
+  border-radius: 30px;
+  cursor: pointer;
+}
+
+.contact-info {
+  background: #f7f7f7;
+  padding: 30px;
+  border-radius: 10px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .contact-container {
+    grid-template-columns: 1fr;
+  }
+}
+.products-page {
+  padding: 60px 8%;
+}
+
+.products-page h1 {
+  margin-bottom: 30px;
+}
+
+.product-detail {
+  padding: 60px 8%;
+}
+
+.product-detail-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+
+.product-detail img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.product-detail ul {
+  padding-left: 20px;
+}
+
+.product-detail li {
+  margin-bottom: 8px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .product-detail-grid {
+    grid-template-columns: 1fr;
+  }
+}
