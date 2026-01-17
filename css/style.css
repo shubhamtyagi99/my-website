@@ -89,33 +89,73 @@ nav {
   cursor: pointer;
 }
 
-/* ===============================
-   MEGA MENU (DESKTOP)
+//* ===============================
+   MEGA MENU (DESKTOP – FINAL)
    =============================== */
+
+/* IMPORTANT: do NOT constrain mega menu */
 .has-mega {
-  position: relative;
+  position: static; /* critical */
 }
 
+/* Allow mega menu to overflow safely */
+.main-header,
+.nav-container {
+  overflow: visible;
+}
+
+/* Mega menu container */
 .mega-menu {
   position: absolute;
-  top: 120%;
-  left: 0;
+  top: calc(100% + 6px); /* prevents hover gap */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 760px;
+
   background: #ffffff;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-  padding: 16px;
+  padding: 24px 28px;
+  border-radius: 10px;
+  box-shadow: 0 14px 35px rgba(0,0,0,0.15);
+
   display: none;
-  min-width: 200px;
+  z-index: 9999;
+  pointer-events: auto;
 }
 
-.has-mega:hover .mega-menu {
+/* Keep menu open when hovering trigger OR menu */
+.has-mega.open .mega-menu {
   display: block;
 }
 
-.mega-menu a {
+
+/* Hover bridge to prevent sudden close */
+.has-mega > a {
+  padding-bottom: 12px;
+}
+
+/* ===============================
+   MEGA MENU GRID
+   =============================== */
+
+.mega-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(200px, 1fr));
+  gap: 12px 28px;
+}
+
+.mega-grid a {
   display: block;
-  padding: 6px 0;
   font-size: 14px;
+  padding: 6px 8px;
+  border-radius: 4px;
+  transition: background 0.2s ease, color 0.2s ease;
 }
+
+.mega-grid a:hover {
+  background: #f1f5f9;
+  color: #005f56;
+}
+
 
 /* ===============================
    HERO
