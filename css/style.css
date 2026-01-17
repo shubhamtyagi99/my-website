@@ -1,99 +1,223 @@
-/* HEADER BASE */
-.main-header {
-  position: sticky;
-  top: 0;
-  background: #fff;
-  z-index: 999;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+/* ===============================
+   RESET & BASE
+   =============================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
+body {
+  font-family: 'Poppins', sans-serif;
+  color: #222;
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* ===============================
+   TOP BAR
+   =============================== */
 .top-bar {
-  background: #00645f;
+  background: #005f56;
   color: #fff;
-  padding: 15px 20px;
-  font-size: 15px;
+  font-size: 14px;
+  padding: 6px 16px;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.top-bar span {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* ===============================
+   HEADER & NAV
+   =============================== */
+.main-header {
+  background: #ffffff;
+  border-bottom: 1px solid #e5e5e5;
+  position: relative;
+  z-index: 1000;
 }
 
 .nav-container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 16px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 15px 20px;
 }
 
 .logo {
   font-size: 22px;
-  font-weight: bold;
-  color: #b5daf3;
+  font-weight: 600;
+  color: #005f56;
+}
+
+nav {
+  display: flex;
 }
 
 .menu {
   list-style: none;
   display: flex;
-  gap: 22px;
-  margin: 0;
-  padding: 0;
+  gap: 24px;
 }
 
 .menu a {
-  text-decoration: none;
   font-weight: 500;
-  color: #000;
 }
 
-.quote-btn {
-  background: #00645f;
-  color: #fff;
-  padding: 10px 18px;
-  border-radius: 25px;
-  text-decoration: none;
-}
-
-/* MEGA MENU DESKTOP */
-.has-mega {
-  position: relative;
-}
-
-.mega-menu {
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 1000px;
-  background: #fff;
-  padding: 30px;
-  display: none;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-}
-
-.has-mega:hover .mega-menu {
-  display: grid;
-}
-
-.mega-column h4 {
-  color: #b5daf3;
-  margin-bottom: 10px;
-}
-
-.mega-column a {
-  display: block;
-  font-size: 14px;
-  margin-bottom: 8px;
-  color: #333;
-}
-
-/* HAMBURGER */
+/* Hamburger */
 .hamburger {
   display: none;
   font-size: 26px;
   cursor: pointer;
 }
 
-/* ================= MOBILE ================= */
+/* ===============================
+   MEGA MENU (DESKTOP)
+   =============================== */
+.has-mega {
+  position: relative;
+}
+
+.mega-menu {
+  position: absolute;
+  top: 120%;
+  left: 0;
+  background: #ffffff;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  padding: 16px;
+  display: none;
+  min-width: 200px;
+}
+
+.has-mega:hover .mega-menu {
+  display: block;
+}
+
+.mega-menu a {
+  display: block;
+  padding: 6px 0;
+  font-size: 14px;
+}
+
+/* ===============================
+   HERO
+   =============================== */
+.hero {
+  background: #0f172a;
+  color: #fff;
+  padding: 120px 20px;
+  text-align: center;
+}
+
+.hero-content {
+  max-width: 800px;
+  margin: auto;
+}
+
+.hero h1 {
+  font-size: 36px;
+  margin-bottom: 16px;
+}
+
+.hero p {
+  font-size: 18px;
+  margin-bottom: 24px;
+}
+
+.btn-primary {
+  display: inline-block;
+  background: #005f56;
+  color: #fff;
+  padding: 12px 28px;
+  border-radius: 30px;
+  font-weight: 500;
+}
+
+/* ===============================
+   PRODUCTS
+   =============================== */
+.products {
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.product-grid {
+  max-width: 1100px;
+  margin: 40px auto 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 24px;
+}
+
+.product-card {
+  padding: 24px;
+  border: 1px solid #e5e5e5;
+  border-radius: 12px;
+}
+
+/* ===============================
+   CONTACT
+   =============================== */
+.contact-section {
+  padding: 80px 20px;
+}
+
+.contact-container {
+  max-width: 1000px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 12px;
+  border: 1px solid #ccc;
+}
+
+.contact-form button {
+  background: #005f56;
+  color: #fff;
+  padding: 12px;
+  border: none;
+  cursor: pointer;
+}
+
+/* ===============================
+   FOOTER
+   =============================== */
+.footer {
+  background: #0f172a;
+  color: #fff;
+  text-align: center;
+  padding: 24px;
+  margin-top: 80px;
+}
+
+/* ===============================
+   MOBILE MENU (FINAL – CLEAN)
+   =============================== */
 @media (max-width: 992px) {
 
   .hamburger {
@@ -101,318 +225,46 @@
   }
 
   nav {
-    position: absolute;
-    top: 110px;
-    left: 0;
-    width: 100%;
-    background: #fff;
-    display: none;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    position: fixed;
+    inset: 0;
+    background: #ffffff;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    padding-top: 120px;
+    z-index: 9999;
   }
 
   nav.active {
-    display: block;
+    transform: translateX(0);
   }
 
   .menu {
     flex-direction: column;
-    padding: 15px;
+    padding: 0 32px;
+    gap: 24px;
   }
 
-  .menu li {
-    padding: 10px 0;
+  /* Disable hover on mobile */
+  .has-mega:hover .mega-menu {
+    display: none;
   }
 
   .mega-menu {
     position: static;
-    width: 100%;
-    transform: none;
     box-shadow: none;
-    grid-template-columns: 1fr;
+    padding: 12px 0;
     display: none;
-    padding: 15px;
   }
 
   .mega-menu.active {
-    display: grid;
+    display: block;
   }
 
-  .quote-btn {
-    display: none;
+  body.menu-open {
+    overflow: hidden;
   }
-}
-.hero {
-  background: url('../images/hero.jpg') center/cover no-repeat;
-  height: 80vh;
-  display: flex;
-  align-items: center;
-  padding: 0 8%;
-}
 
-.hero-content {
-  max-width: 600px;
-  background: rgba(255,255,255,0.9);
-  padding: 40px;
-  border-radius: 10px;
-}
-
-.hero h1 {
-  font-size: 36px;
-  margin-bottom: 15px;
-  color: #064635;
-}
-
-.hero p {
-  font-size: 16px;
-  margin-bottom: 20px;
-}
-
-.btn-primary {
-  background: #00645f;
-  color: #fff;
-  padding: 12px 25px;
-  text-decoration: none;
-  border-radius: 30px;
-  display: inline-block;
-}
-.products {
-  padding: 60px 8%;
-  text-align: center;
-}
-
-.products h2 {
-  margin-bottom: 40px;
-  font-size: 32px;
-}
-
-.product-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 25px;
-}
-
-.product-card {
-  background: #fff;
-  padding: 25px;
-  border-radius: 10px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-}
-grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-.contact-section {
-  padding: 60px 8%;
-}
-
-.contact-section h1 {
-  font-size: 32px;
-  margin-bottom: 10px;
-}
-
-.contact-section p {
-  margin-bottom: 30px;
-}
-
-.contact-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 40px;
-}
-
-.contact-form {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-.contact-form input,
-.contact-form textarea {
-  padding: 12px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-
-.contact-form button {
-  background: #b5daf3;
-  color: #fff;
-  border: none;
-  padding: 12px;
-  border-radius: 30px;
-  cursor: pointer;
-}
-
-.contact-info {
-  background: #f7f7f7;
-  padding: 30px;
-  border-radius: 10px;
-}
-
-/* RESPONSIVE */
-@media (max-width: 768px) {
   .contact-container {
     grid-template-columns: 1fr;
   }
-}
-.products-page {
-  padding: 60px 8%;
-}
-
-.products-page h1 {
-  margin-bottom: 30px;
-}
-
-.product-detail {
-  padding: 60px 8%;
-}
-
-.product-detail-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 40px;
-}
-
-.product-detail img {
-  width: 100%;
-  border-radius: 10px;
-}
-
-.product-detail ul {
-  padding-left: 20px;
-}
-
-.product-detail li {
-  margin-bottom: 8px;
-}
-
-/* RESPONSIVE */
-@media (max-width: 768px) {
-  .product-detail-grid {
-    grid-template-columns: 1fr;
-  }
-}
-body {
-  font-family: 'Poppins', sans-serif;
-}
-
-.main-header {
-  width: 100%;
-}
-
-.top-bar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 40px;
-  background-color: #0a2540;
-  color: #fff;
-  font-size: 14px;
-}
-
-.top-bar i {
-  margin-right: 8px;
-  color: #ffcc00;
-}
-
-.top-left,
-.top-right {
-  display: flex;
-  align-items: center;
-}
-
-@media (max-width: 768px) {
-  .top-bar {
-    flex-direction: column;
-    gap: 8px;
-    text-align: center;
-  }
-}
-.footer {
-  text-align: center;
-  padding: 20px;
-  background: #0a2540;
-  color: #fff;
-}
-nav-container {
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
-
-/* ===== UI IMPROVEMENTS ===== */
-body {
-  font-family: 'Poppins', sans-serif;
-  font-size: 16px;
-  line-height: 1.6;
-  color: #333;
-}
-
-.site-header {
-  position: sticky;
-  top: 0;
-  background: #ffffff;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-  z-index: 1000;
-}
-
-.nav-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 20px;
-}
-
-.nav-links {
-  list-style: none;
-  display: flex;
-  gap: 25px;
-}
-
-.nav-links a {
-  text-decoration: none;
-  color: #444;
-  font-weight: 500;
-  padding-bottom: 5px;
-}
-
-.nav-links a.active,
-.nav-links a:hover {
-  color: #0056b3;
-  border-bottom: 2px solid #0056b3;
-}
-
-section {
-  padding: 70px 20px;
-}
-
-.container {
-  max-width: 1200px;
-  margin: auto;
-}
-
-.hero {
-  height: 80vh;
-  background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
-              url("../images/ptfe-cable.jpg") center/cover no-repeat;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  color: #fff;
-}
-
-.hero-content h1 {
-  font-size: 42px;
-  margin-bottom: 15px;
-}
-
-.hero-content p {
-  font-size: 18px;
-  margin-bottom: 25px;
-}
-
-.btn-primary {
-  padding: 12px 28px;
-  background: #0056b3;
-  color: #fff;
-  text-decoration: none;
-  border-radius: 4px;
-  font-weight: 500;
 }

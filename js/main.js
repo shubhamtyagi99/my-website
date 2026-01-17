@@ -1,29 +1,38 @@
-const hamburger = document.getElementById("hamburger");
-const navMenu = document.getElementById("navMenu");
-const productsToggle = document.getElementById("productsToggle");
-const megaMenu = document.querySelector(".mega-menu");
-
-if (hamburger) {
-  hamburger.addEventListener("click", () => {
-    navMenu.classList.toggle("active");
-  });
-}
-
-if (productsToggle) {
-  productsToggle.addEventListener("click", (e) => {
-    if (window.innerWidth <= 992) {
-      e.preventDefault();
-      megaMenu.classList.toggle("active");
-    }
-  });
-}
-
-// Active navigation highlight
-const links = document.querySelectorAll(".nav-links a");
-const currentPage = location.pathname.split("/").pop();
-
-links.forEach(link => {
-  if (link.getAttribute("href") === currentPage) {
-    link.classList.add("active");
-  }
+document.addEventListener("DOMContentLoaded", () => {
+  loadHeaderFooter();
 });
+
+function loadHeaderFooter() {
+  fetch("partials/header.html")
+    .then(res => res.text())
+    .then(html => {
+      document.getElementById("site-header").innerHTML = html;
+
+      // FORCE RESET MENU STATE
+      const navMenu = document.getElementById("navMenu");
+      if (navMenu) {
+        navMenu.classList.remove("active");
+      }
+      document.body.classList.remove("menu-open");
+
+      initMenu();
+    });
+
+  fetch("partials/footer.html")
+    .then(res => res.text())
+    .then(html => {
+      document.getElementById("site-footer").innerHTML = html;
+    });
+}
+
+function initMenu() {
+  const hamburger = document.getElementById("hamburger");
+  const navMenu = document.getElementById("navMenu");
+
+  if (!hamburger || !navMenu) return;
+
+  hamburger.onclick = () => {
+    navMenu.classList.toggle("active");
+    document.body.classList.toggle("menu-open");
+  };
+}

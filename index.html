@@ -3,135 +3,73 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <title>Company Website</title>
 
   <!-- SEO -->
   <meta name="description" content="Manufacturers of high quality PTFE cables and industrial products">
 
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="css/all.min.css">
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
 
   <!-- Google Font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap"
+    rel="stylesheet"
+  >
 
   <!-- Main CSS -->
   <link rel="stylesheet" href="css/style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
-
 
 <body>
 
-<header class="main-header">
-  <div class="top-bar">
-    <div class="top-left">
-      <i class="fa-solid fa-envelope"></i>
-      <span>info@tanyacables.com</span>
-    </div>
+  <!-- SHARED HEADER -->
+  <div id="site-header"></div>
 
-    <div class="top-right">
-      <i class="fa-solid fa-location-dot"></i>
-      <span>46-Vedvyaspuri Industrial Area, Meerut</span>
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Leading Manufacturer of PTFE & Industrial Cables</h1>
+      <p>High quality PTFE, High Temperature & High Voltage cables for industrial applications.</p>
+      <a href="contact.html" class="btn-primary">Get a Quote</a>
+    </div>
+  </section>
+
+  <!-- PRODUCTS -->
+  <section class="products">
+  <div class="container">
+<h2>Our Products</h2>
+
+    <div class="product-grid">
+      <div class="product-card">
+        <h3>PTFE Cables</h3>
+        <p>High performance cables for extreme conditions.</p>
+      </div>
+
+      <div class="product-card">
+        <h3>High Temperature Cables</h3>
+        <p>Heat resistant cables for industrial usage.</p>
+      </div>
+
+      <div class="product-card">
+        <h3>High Voltage Cables</h3>
+        <p>Safe & reliable high voltage cable solutions.</p>
+      </div>
     </div>
   </div>
-</header>
+</section>
 
+  <!-- SHARED FOOTER -->
+  <div id="site-footer"></div>
 
-  <!-- NAVBAR -->
-  <div class="nav-container">
-    <div class="logo">COMPANY</div>
-
-    <!-- HAMBURGER -->
-    <div class="hamburger" id="hamburger">
-      ☰
-    </div>
-
-    <nav id="navMenu">
-      <ul class="menu">
-        <li><a href="#">Home</a></li>
-        <li><a href="#">About Us</a></li>
-
-        <li class="has-mega">
-          <a href="#" id="productsToggle">Products ▾</a>
-
-          <div class="mega-menu">
-            <div class="mega-column">
-              <h4>PTFE Cables</h4>
-              <a href="#">PTFE Cables</a>
-              <a href="#">PTFE Thermocouple Cable</a>
-              <a href="#">PTFE Control Cable</a>
-              <a href="#">RG 188 Cable</a>
-            </div>
-
-            <div class="mega-column">
-              <h4>PTFE Insulated</h4>
-              <a href="#">PTFE Insulated Wires</a>
-              <a href="#">PTFE RTD Cables</a>
-              <a href="#">Heating Wire</a>
-              <a href="#">DC Cable</a>
-            </div>
-
-            <div class="mega-column">
-              <h4>High Temperature</h4>
-              <a href="#">PTFE High Temp Cable</a>
-              <a href="#">Ignition Wires</a>
-              <a href="#">RG 178 Cable</a>
-            </div>
-
-            <div class="mega-column">
-              <h4>High Voltage</h4>
-              <a href="#">PTFE High Voltage</a>
-              <a href="#">Battery Wires</a>
-              <a href="#">RG 179 Cable</a>
-            </div>
-          </div>
-        </li>
-
-        <li><a href="#">Gallery</a></li>
-        <li><a href="#">Blog</a></li>
-        <li><a href="#">Contact Us</a></li>
-      </ul>
-    </nav>
-
-    <a class="quote-btn" href="#">Get a Quote</a>
-  </div>
-</header>
-<script src="js/main.js"></script>
+  <!-- JS -->
+  <script src="js/main.js"></script>
 </body>
 </html>
-<!-- HERO SECTION -->
-<section class="hero">
-  <div class="hero-content">
-    <h1>Leading Manufacturer of PTFE & Industrial Cables</h1>
-    <p>High quality PTFE, High Temperature & High Voltage cables for industrial applications.</p>
-    <a href="contact.html" class="btn-primary">Get a Quote</a>
-  </div>
-</section>
-<!-- PRODUCTS -->
-<section class="products">
-  <h2>Our Products</h2>
-
-  <div class="product-grid">
-    <div class="product-card">
-      <h3>PTFE Cables</h3>
-      <p>High performance cables for extreme conditions.</p>
-    </div>
-
-    <div class="product-card">
-      <h3>High Temperature Cables</h3>
-      <p>Heat resistant cables for industrial usage.</p>
-    </div>
-
-    <div class="product-card">
-      <h3>High Voltage Cables</h3>
-      <p>Safe & reliable high voltage cable solutions.</p>
-    </div>
-  </div>
-</section>
-<footer class="footer">
-  <p>© 2026 Tanya Cables. All rights reserved.</p>
-</footer>
-
