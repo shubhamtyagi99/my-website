@@ -20,7 +20,20 @@ a {
 
 img {
   max-width: 100%;
+  height: auto;
   display: block;
+}
+
+.product-detail-grid {
+  max-width: 600px;      /* controls image size */
+  margin: 20px auto;     /* centers it */
+}
+
+.product-detail-grid img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
 }
 
 /* ===============================
@@ -262,16 +275,25 @@ nav {
 
   .hamburger {
     display: block;
+    font-size: 26px;
+    cursor: pointer;
+    z-index: 10001;
   }
 
   nav {
     position: fixed;
-    inset: 0;
+    top: 110px;              /* height of header + top bar */
+    left: 0;
+    width: 100vw;
+    height: calc(100vh - 110px);
+
     background: #ffffff;
     transform: translateX(100%);
     transition: transform 0.3s ease;
-    padding-top: 120px;
-    z-index: 9999;
+    z-index: 10000;
+
+    display: flex;
+    justify-content: flex-start;
   }
 
   nav.active {
@@ -279,10 +301,12 @@ nav {
   }
 
   .menu {
+    display: flex;
     flex-direction: column;
     padding: 0 32px;
     gap: 24px;
   }
+  
 
   /* Disable hover on mobile */
   .has-mega:hover .mega-menu {

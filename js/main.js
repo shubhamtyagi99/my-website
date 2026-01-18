@@ -35,11 +35,13 @@ function initMenu() {
 
   if (!hamburger || !navMenu) return;
 
-  hamburger.onclick = () => {
+  hamburger.addEventListener("click", () => {
     navMenu.classList.toggle("active");
     document.body.classList.toggle("menu-open");
-  };
+  });
 }
+
+document.addEventListener("DOMContentLoaded", initMenu);
 
 /* =========================
    DESKTOP MEGA MENU (HOVER)
