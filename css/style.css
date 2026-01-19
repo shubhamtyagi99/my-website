@@ -67,19 +67,38 @@ img {
 }
 
 .nav-container {
-  max-width: 1200px;
-  margin: auto;
-  padding: 16px;
-  display: flex;
+   display: flex;
   align-items: center;
   justify-content: space-between;
+  min-height: 70px;   /* controls header height */
+  padding: 0 16px;
 }
 
+/* =========================
+   Logo Styling
+   ========================= */
+   
 .logo {
-  font-size: 22px;
-  font-weight: 600;
-  color: #005f56;
+  display: flex;
+  align-items: center;
+  object-fit: contain;
 }
+
+.logo img {
+  height: 80px;        /* desktop size */
+  width: auto;
+  display: block;
+}
+
+/* Mobile logo size */
+@media (max-width: 992px) {
+  .logo img {
+    height: 62px;
+    position: relative;
+    z-index: 10002;
+  }
+}
+
 
 nav {
   display: flex;
