@@ -1,353 +1,383 @@
 /* ===============================
-   RESET & BASE
-   =============================== */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+   1. RESET & GLOBAL SYSTEM
+================================*/
+*{margin:0;padding:0;box-sizing:border-box}
+
+:root{
+  --primary:#2E6F5E;
+  --secondary:#1F2A37;
+  --accent:#F59E0B;
+  --light:#F7F9FB;
+  --text:#333;
 }
 
-body {
-  font-family: 'Poppins', sans-serif;
-  color: #222;
-  line-height: 1.6;
+body{
+  font-family:Poppins,sans-serif;
+  color:var(--text);
+  line-height:1.7;
 }
 
-a {
-  text-decoration: none;
-  color: inherit;
+/* TYPOGRAPHY SCALE */
+h1{font-size:64px;line-height:1.1;font-weight:700}
+h2{font-size:46px;
+  font-weight:700;
+  margin-bottom:28px;
+  letter-spacing:.4px;
+  color:#1f2933;
+
+}
+h3{font-size:28px;font-weight:600}
+p{font-size:17px;color:#555}
+
+/* GLOBAL CONTAINER */
+.container{
+  max-width:1320px;
+  margin:auto;
+  padding:0 20px;
 }
 
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
+section{padding:110px 0}
+
+
+/* BUTTONS */
+.btn{
+  display:inline-block;
+  padding:16px 34px;
+  border-radius:40px;
+  text-decoration:none;
+  font-weight:600;
+  transition:.3s;
+  letter-spacing:.3px;
 }
 
-.product-detail-grid {
-  max-width: 600px;      /* controls image size */
-  margin: 20px auto;     /* centers it */
-}
+.btn-primary{background:var(--primary);color:#fff}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 10px 25px rgba(0,0,0,.2)}
 
-.product-detail-grid img {
-  width: 100%;
-  height: auto;
-  display: block;
-  object-fit: contain;
+.btn-outline{
+  border:2px solid var(--primary);
+  color:var(--primary);
+}
+.btn-outline:hover{
+  background:var(--primary);
+  color:#fff;
 }
 
 /* ===============================
-   TOP BAR
-   =============================== */
-.top-bar {
-  background: #0B5D4D;
-  color: #fff;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  padding: 5px 25px;
+   2. TOP BAR
+================================*/
+.topbar{
+  background:var(--primary);
+  color:#fff;
+  font-size:14px;
+  padding:8px 0;
+  position:sticky;
+  top:0;
+  z-index:10000;
+  background:#2f6f5e;
 }
-
-.top-bar span {
-  display: flex;
-  align-items: center;
-  gap: 8px;
+.topbar .container{
+  display:flex;
+  justify-content:space-between;
 }
 
 /* ===============================
-   HEADER & NAV
-   =============================== */
-.main-header {
-  background: #ffffff;
-  border-bottom: 1px solid #e5e5e5;
-  position: relative;
-  z-index: 1000;
+   3. HEADER / NAVBAR
+================================*/
+.main-header{
+  position:sticky;
+  top:42;
+  background:#fff;
+  z-index:9999;
+  box-shadow:0 4px 25px rgba(0,0,0,.08);
+  border-bottom:1px solid #e5e5e5;
 }
 
-.nav-container {
-   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  min-height: 70px;   /* controls header height */
-  padding: 0 16px;
+.navbar{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  height:78px;
+  padding:0 10px;
 }
 
-/* =========================
-   Logo Styling
-   ========================= */
-   
-.logo {
-  display: flex;
-  align-items: center;
-  object-fit: contain;
+/* ================= LOGO ================= */
+.logo{
+  display:flex;
+  align-items:center;
 }
 
-.logo img {
-  height: 80px;        /* desktop size */
-  width: auto;
-  display: block;
+.logo img{
+  height:72px;           /* desktop size */
+  width:auto;
+  filter: contrast(1.08) saturate(1.05);
 }
 
-/* Mobile logo size */
-@media (max-width: 992px) {
-  .logo img {
-    height: 62px;
-    position: relative;
-    z-index: 10002;
+
+.menu{
+  list-style:none;
+  display:flex;
+  gap:45px;
+}
+
+.menu a{
+  text-decoration:none;
+  color:#222;
+  font-weight:600;
+  position:relative;
+}
+
+.menu a::after{
+  content:"";
+  position:absolute;
+  bottom:-6px;
+  left:0;
+  width:0;
+  height:2px;
+  background:var(--primary);
+  transition:.3s;
+}
+
+.menu a:hover::after,
+.menu a.active::after{width:100%}
+
+.menu a.active{color:var(--primary)}
+
+/* ===============================
+   4. MEGA MENU (PRO)
+================================*/
+.has-mega{position:relative}
+
+.mega-menu{
+  position:absolute;
+  top:100%;
+  left:50%;
+  transform:translateX(-50%) translateY(15px);
+  width:1200px;
+  max-width:95vw;
+  background:#fff;
+  padding:45px;
+  box-shadow:0 25px 50px rgba(0,0,0,.15);
+  opacity:0;
+  visibility:hidden;
+  transition:.25s ease;
+}
+
+.has-mega.open .mega-menu{
+  opacity:1;
+  visibility:visible;
+  transform:translateX(-50%) translateY(0);
+}
+
+.mega-inner{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:20px;
+}
+
+
+/* ===============================
+   5. HERO BASE
+================================*/
+.hero{
+  min-height:85vh;
+  display:flex;
+  align-items:center;
+  color:#fff;
+  background:
+  linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),
+  url('../images/ptfe-cable.jpeg') center/cover no-repeat;
+  position:relative; 
+  z-index:1;
+  margin-top:-2px;
+}
+
+
+/* ================= FOOTER ================= */
+
+.footer{
+  background:#1f2933;
+  color:#fff;
+  padding:70px 0 30px;
+}
+
+.footer-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:40px;
+}
+
+.footer h4{
+  margin-bottom:15px;
+}
+
+.footer ul{
+  list-style:none;
+  padding:0;
+}
+
+.footer ul li{
+  margin-bottom:8px;
+}
+
+.footer a{
+  color:#ddd;
+  text-decoration:none;
+}
+
+.footer a:hover{
+  color:#fff;
+}
+
+.footer-bottom{
+  text-align:center;
+  margin-top:40px;
+  border-top:1px solid #444;
+  padding-top:20px;
+  font-size:14px;
+}
+
+/* mobile footer */
+@media(max-width:992px){
+  .footer-grid{
+    grid-template-columns:1fr 1fr;
   }
 }
 
-
-nav {
-  display: flex;
+@media(max-width:600px){
+  .footer-grid{
+    grid-template-columns:1fr;
+  }
 }
 
-.menu {
-  list-style: none;
-  display: flex;
-  gap: 24px;
+/* =========================================
+   FINAL MOBILE / TABLET NAVIGATION SYSTEM
+========================================= */
+
+#hamburger{
+  display:none;
+  font-size:28px;
+  cursor:pointer;
 }
 
-.menu a {
-  font-weight: 500;
+/* ================= TABLET + MOBILE ================= */
+@media(max-width:992px){
+
+
+  section{padding:85px 0}
+
+  /* NAVBAR STACK */
+  .navbar{
+  display:flex;
+  flex-direction:row;            /* logo + hamburger in row */
+  justify-content:space-between;
+  align-items:center;
+  padding:14px 18px;
+  position:relative;
+   height:auto;
+}
+.navbar .btn{
+  display:none;
 }
 
-/* Hamburger */
-.hamburger {
-  display: none;
-  font-size: 26px;
-  cursor: pointer;
+.logo img{
+  height:48px;   /* mobile perfect size */
+}
+.logo{
+  margin-top:6px;
 }
 
-//* ===============================
-   MEGA MENU (DESKTOP – FINAL)
-   =============================== */
-
-/* IMPORTANT: do NOT constrain mega menu */
-.has-mega {
-  position: static; /* critical */
-}
-
-/* Allow mega menu to overflow safely */
-.main-header,
-.nav-container {
-  overflow: visible;
-}
-
-/* Mega menu container */
-.mega-menu {
-  position: absolute;
-  top: calc(100% + 6px); /* prevents hover gap */
-  left: 50%;
-  transform: translateX(-50%);
-  width: 760px;
-
-  background: #ffffff;
-  padding: 24px 28px;
-  border-radius: 10px;
-  box-shadow: 0 14px 35px rgba(0,0,0,0.15);
-
-  display: none;
-  z-index: 9999;
-  pointer-events: auto;
-}
-
-/* Keep menu open when hovering trigger OR menu */
-.has-mega.open .mega-menu {
-  display: block;
-}
-
-
-/* Hover bridge to prevent sudden close */
-.has-mega > a {
-  padding-bottom: 12px;
-}
-
-/* ===============================
-   MEGA MENU GRID
-   =============================== */
-
-.mega-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(200px, 1fr));
-  gap: 12px 28px;
-}
-
-.mega-grid a {
-  display: block;
-  font-size: 14px;
-  padding: 6px 8px;
-  border-radius: 4px;
-  transition: background 0.2s ease, color 0.2s ease;
-}
-
-.mega-grid a:hover {
-  background: #f1f5f9;
-  color: #005f56;
-}
-
-
-/* ===============================
-   HERO
-   =============================== */
-.hero {
-  background: #0f172a;
-  color: #fff;
-  padding: 120px 20px;
-  text-align: center;
-}
-
-.hero-content {
-  max-width: 800px;
-  margin: auto;
-}
-
-.hero h1 {
-  font-size: 36px;
-  margin-bottom: 16px;
-}
-
-.hero p {
-  font-size: 18px;
-  margin-bottom: 24px;
-}
-
-.btn-primary {
-  display: inline-block;
-  background: #005f56;
-  color: #fff;
-  padding: 12px 28px;
-  border-radius: 30px;
-  font-weight: 500;
-}
-
-/* ===============================
-   PRODUCTS
-   =============================== */
-.products {
-  padding: 80px 20px;
-  text-align: center;
-}
-
-.product-grid {
-  max-width: 1100px;
-  margin: 40px auto 0;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 24px;
-}
-
-.product-card {
-  padding: 24px;
-  border: 1px solid #e5e5e5;
-  border-radius: 12px;
-}
-
-/* ===============================
-   CONTACT
-   =============================== */
-.contact-section {
-  padding: 80px 20px;
-}
-
-.contact-container {
-  max-width: 1000px;
-  margin: auto;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 32px;
-}
-
-.contact-form input,
-.contact-form textarea {
-  width: 100%;
-  padding: 12px;
-  margin-bottom: 12px;
-  border: 1px solid #ccc;
-}
-
-.contact-form button {
-  background: #005f56;
-  color: #fff;
-  padding: 12px;
-  border: none;
-  cursor: pointer;
-}
-
-/* ===============================
-   FOOTER
-   =============================== */
-.footer {
-  background: #0F766E;
-  color: #fff;
-  text-align: center;
-  padding: 24px;
-  margin-top: 80px;
-}
-
-/* ===============================
-   MOBILE MENU (FINAL – CLEAN)
-   =============================== */
-@media (max-width: 992px) {
-
-  .hamburger {
-    display: block;
-    font-size: 26px;
-    cursor: pointer;
-    z-index: 10001;
+  /* SHOW HAMBURGER */
+  #hamburger{
+    display:block;
+    margin-top:6px;
+  margin-bottom:4px;
   }
 
-  nav {
-    position: fixed;
-    top: 130px;              /* height of header + top bar */
-    left: 0;
-    width: 100vw;
-    height: calc(100vh - 110px);
+  /* MOBILE DROPDOWN MENU */
+  .menu{
+  position:absolute;
+  top:100%;
+  left:0;
+  width:100%;
+  background:#fff;
+  display:none !important;
+  flex-direction:column;
+  padding:20px;
+  box-shadow:0 12px 30px rgba(0,0,0,.15);
+  z-index:999;
+  gap:18px;
+}
 
-    background: #ffffff;
-    transform: translateX(100%);
-    transition: transform 0.3s ease;
-    z-index: 10000;
 
-    display: flex;
-    justify-content: flex-start;
+  .menu.open{
+    display:flex !important;
   }
 
-  nav.active {
-    transform: translateX(0);
+  /* ACTIVE LINK */
+  .menu a.active{
+    color:var(--primary);
+    font-weight:700;
   }
 
-  .menu {
-    display: flex;
-    flex-direction: column;
-    padding: 0 32px;
-    gap: 24px;
-  }
+  /* MOBILE MEGA MENU ACCORDION */
   
-
-  /* Disable hover on mobile */
-  .has-mega:hover .mega-menu {
-    display: none;
+  .mega-menu{
+    position:static;
+    transform:none;
+    box-shadow:none;
+    padding:0;
+    max-height:0;
+    overflow:hidden;
+    opacity:1;
+    visibility:visible;
+    transition:max-height .4s ease;
   }
 
-  .mega-menu {
-    position: static;
-    box-shadow: none;
-    padding: 12px 0;
-    display: none;
+  .has-mega.mobile-open .mega-menu{
+    max-height:500px;
+    padding-top:10px;
   }
 
-  .mega-menu.active {
-    display: block;
+  .mega-inner{
+    grid-template-columns:1fr;
+    gap:8px;
+    padding-left:10px;
   }
 
-  body.menu-open {
-    overflow: hidden;
+  /* HERO MOBILE */
+  .hero{
+    min-height:70vh;
+    padding:80px 0;
+    text-align:left;
   }
 
-  .contact-container {
-    grid-template-columns: 1fr;
+  h1{font-size:34px}
+  h2{font-size:32px}
+
+  /* BUTTON FULL WIDTH */
+  .btn{
+    width:90%;
+    text-align:center;
+    border-radius:40px;
+  font-weight:600;
+  letter-spacing:.3px;
+  }
+
+  /* GRID RESPONSIVE */
+  .product-grid{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .main-header{
+    top:40px;        /* matches mobile topbar height */
   }
 }
+
+/* ================= SMALL MOBILE ================= */
+@media(max-width:600px){
+  .product-grid{
+    grid-template-columns:1fr;
+  }
+}
+
+

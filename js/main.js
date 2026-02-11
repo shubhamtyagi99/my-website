@@ -1,76 +1,71 @@
-document.addEventListener("DOMContentLoaded", () => {
-  loadHeaderFooter();
+// LOAD HEADER & FOOTER
+fetch("./partials/header.html")
+.then(res=>res.text())
+.then(data=>{
+  document.getElementById("site-header").innerHTML = data;
+  initMegaMenu();
+  setActiveMenu();
+  initMobileMenu();
 });
 
-function loadHeaderFooter() {
-  fetch("partials/header.html")
-    .then(res => res.text())
-    .then(html => {
-      document.getElementById("site-header").innerHTML = html;
+fetch("./partials/footer.html")
+.then(res=>res.text())
+.then(data=>{
+  document.getElementById("site-footer").innerHTML = data;
+});
 
-      // FORCE RESET MENU STATE
-      const navMenu = document.getElementById("navMenu");
-      if (navMenu) {
-        navMenu.classList.remove("active");
-      }
-      document.body.classList.remove("menu-open");
 
-      initMenu();
-      initMegaMenu(); // ✅ NEW
-    });
+/* DESKTOP MEGA MENU */
+function initMegaMenu(){
+  const item=document.querySelector(".has-mega");
+  const header=document.querySelector(".main-header");
+  if(!item) return;
 
-  fetch("partials/footer.html")
-    .then(res => res.text())
-    .then(html => {
-      document.getElementById("site-footer").innerHTML = html;
-    });
-}
+  let timeout;
 
-/* =========================
-   MOBILE HAMBURGER MENU
-   ========================= */
-function initMenu() {
-  const hamburger = document.getElementById("hamburger");
-  const navMenu = document.getElementById("navMenu");
-
-  if (!hamburger || !navMenu) return;
-
-  hamburger.addEventListener("click", () => {
-    navMenu.classList.toggle("active");
-    document.body.classList.toggle("menu-open");
-  });
-}
-
-document.addEventListener("DOMContentLoaded", initMenu);
-
-/* =========================
-   DESKTOP MEGA MENU (HOVER)
-   ========================= */
-function initMegaMenu() {
-  const megaItem = document.querySelector(".has-mega");
-  const megaTrigger = megaItem?.querySelector("a");
-  const header = document.querySelector(".main-header");
-
-  if (!megaItem || !megaTrigger || !header) return;
-
-  // OPEN on hover (desktop)
-  megaItem.addEventListener("mouseenter", () => {
-    if (window.innerWidth > 992) {
-      megaItem.classList.add("open");
+  item.addEventListener("mouseenter",()=>{
+    if(window.innerWidth>992){
+      clearTimeout(timeout);
+      item.classList.add("open");
     }
   });
 
-  // CLOSE when mouse leaves the ENTIRE header
-  header.addEventListener("mouseleave", () => {
-    if (window.innerWidth > 992) {
-      megaItem.classList.remove("open");
+  header.addEventListener("mouseleave",()=>{
+    if(window.innerWidth>992){
+      timeout=setTimeout(()=>item.classList.remove("open"),250);
     }
   });
+}
 
-  // Prevent navigation on Products click (desktop)
-  megaTrigger.addEventListener("click", (e) => {
-    if (window.innerWidth > 992) {
+
+/* MOBILE MENU + ACCORDION */
+function initMobileMenu(){
+  const hamburger=document.getElementById("hamburger");
+  const menu=document.querySelector(".menu");
+  const productsToggle=document.getElementById("mobileProductsToggle");
+  const megaItem=document.querySelector(".has-mega");
+
+  if(!hamburger) return;
+
+  hamburger.addEventListener("click",()=>{
+    menu.classList.toggle("open");
+  });
+
+  productsToggle.addEventListener("click",(e)=>{
+    if(window.innerWidth<=992){
       e.preventDefault();
+      megaItem.classList.toggle("mobile-open");
+    }
+  });
+}
+
+
+/* ACTIVE MENU */
+function setActiveMenu(){
+  const currentPage=location.pathname.split("/").pop();
+  document.querySelectorAll(".menu a").forEach(link=>{
+    if(link.getAttribute("href")===currentPage){
+      link.classList.add("active");
     }
   });
 }
