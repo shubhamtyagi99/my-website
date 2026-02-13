@@ -1,4 +1,21 @@
 /* ================= LOAD HEADER & FOOTER ================= */
+/* ===== GITHUB PAGES BASE PATH FIX ===== */
+const BASE_PATH = location.hostname.includes("github.io")
+  ? "/my-website"
+  : "";
+
+/* Fix all links */
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll("a[href^='/']").forEach(link => {
+    link.setAttribute("href", BASE_PATH + link.getAttribute("href"));
+  });
+
+  document.querySelectorAll("img[src^='/']").forEach(img => {
+    img.setAttribute("src", BASE_PATH + img.getAttribute("src"));
+  });
+});
+
+
 
 function loadHeaderFooter(){
 
