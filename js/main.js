@@ -1,29 +1,9 @@
-/* ================= LOAD HEADER & FOOTER ================= */
-/* ===== GITHUB PAGES BASE PATH FIX ===== */
-const BASE_PATH = location.hostname.includes("github.io")
-  ? "/my-website"
-  : "";
-
-/* Fix all links */
-document.addEventListener("DOMContentLoaded", () => {
-  document.querySelectorAll("a[href^='/']").forEach(link => {
-    link.setAttribute("href", BASE_PATH + link.getAttribute("href"));
-  });
-
-  document.querySelectorAll("img[src^='/']").forEach(img => {
-    img.setAttribute("src", BASE_PATH + img.getAttribute("src"));
-  });
-});
-
-
-
 function loadHeaderFooter(){
 
-  // ⭐ detect if page is inside /products folder
   const isProductPage = window.location.pathname.includes("/products/");
   const basePath = isProductPage ? "../" : "./";
 
-  fetch(basePath + "/partials/header.html")
+  fetch(basePath + "partials/header.html")
   .then(res=>res.text())
   .then(data=>{
     document.getElementById("site-header").innerHTML=data;
@@ -33,7 +13,7 @@ function loadHeaderFooter(){
     setActiveMenu();
   });
 
-  fetch(basePath + "/partials/footer.html")
+  fetch(basePath + "partials/footer.html")
   .then(res=>res.text())
   .then(data=>{
     document.getElementById("site-footer").innerHTML=data;
@@ -41,6 +21,7 @@ function loadHeaderFooter(){
 }
 
 document.addEventListener("DOMContentLoaded", loadHeaderFooter);
+
 
 
 
