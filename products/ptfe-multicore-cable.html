@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script>
+    (function () {
+      var isGitHub = location.hostname.includes("github.io");
+      var base = document.createElement("base");
+      base.href = isGitHub ? "/my-website/" : "/";
+      document.head.appendChild(base);
+    })();
+  </script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>PTFE Multicore Cable | Ardaas Cables</title>
