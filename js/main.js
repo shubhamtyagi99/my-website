@@ -1,26 +1,27 @@
+/* ================= LOAD HEADER & FOOTER (FINAL) ================= */
 function loadHeaderFooter(){
 
-  const isProductPage = window.location.pathname.includes("/products/");
-  const basePath = isProductPage ? "../" : "./";
+  const isGitHub = location.hostname.includes("github.io");
+  const base = isGitHub ? "/my-website/" : "/";
 
-  fetch(basePath + "partials/header.html")
-  .then(res=>res.text())
-  .then(data=>{
-    document.getElementById("site-header").innerHTML=data;
-
+  fetch(base + "partials/header.html")
+  .then(res => res.text())
+  .then(data => {
+    document.getElementById("site-header").innerHTML = data;
     initMobileMenu();
     initMegaMenu();
     setActiveMenu();
   });
 
-  fetch(basePath + "partials/footer.html")
-  .then(res=>res.text())
-  .then(data=>{
-    document.getElementById("site-footer").innerHTML=data;
+  fetch(base + "partials/footer.html")
+  .then(res => res.text())
+  .then(data => {
+    document.getElementById("site-footer").innerHTML = data;
   });
 }
 
 document.addEventListener("DOMContentLoaded", loadHeaderFooter);
+
 
 
 
