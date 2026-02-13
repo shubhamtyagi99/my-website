@@ -4,11 +4,12 @@
 *{margin:0;padding:0;box-sizing:border-box}
 
 :root{
-  --primary:#2E6F5E;
-  --secondary:#1F2A37;
-  --accent:#F59E0B;
-  --light:#F7F9FB;
-  --text:#333;
+  --primary:#2f8f75;      /* logo green */
+  --primary-dark:#1f6e5a; /* darker green */
+  --accent:#f7941d;       /* logo orange */
+  --dark:#1f2a33;         /* text / dark strips */
+  --light:#f5f7fa;        /* section background */
+  --text:#4b5563;
 }
 
 body{
@@ -16,24 +17,30 @@ body{
   color:var(--text);
   line-height:1.7;
 }
+section,
+.product-grid,
+.container{
+  position:relative;
+  z-index:1;
+}
 
 /* TYPOGRAPHY SCALE */
-h1{font-size:64px;line-height:1.1;font-weight:700}
-h2{font-size:46px;
-  font-weight:700;
+h1{font-size:54px;line-height:1.1;font-weight:600}
+h2{font-size:36px;
+  font-weight:600;
   margin-bottom:28px;
   letter-spacing:.4px;
   color:#1f2933;
 
 }
 h3{font-size:28px;font-weight:600}
-p{font-size:17px;color:#555}
+p{font-size:17px;color:#b1e9da}
 
 /* GLOBAL CONTAINER */
 .container{
   max-width:1320px;
   margin:auto;
-  padding:0 20px;
+  padding:0 24px;
 }
 
 section{padding:110px 0}
@@ -51,7 +58,12 @@ section{padding:110px 0}
 }
 
 .btn-primary{background:var(--primary);color:#fff}
-.btn-primary:hover{transform:translateY(-3px);box-shadow:0 10px 25px rgba(0,0,0,.2)}
+.btn-primary:hover{
+  transform:translateY(-3px);
+  background:var(--primary-dark);
+  box-shadow:0 10px 25px rgba(0,0,0,.2);
+}
+
 
 .btn-outline{
   border:2px solid var(--primary);
@@ -66,15 +78,15 @@ section{padding:110px 0}
    2. TOP BAR
 ================================*/
 .topbar{
-  background:var(--primary);
+  background:var(--primary-dark);
   color:#fff;
   font-size:14px;
   padding:8px 0;
   position:sticky;
   top:0;
-  z-index:10000;
-  background:#2f6f5e;
+  z-index:50;
 }
+
 .topbar .container{
   display:flex;
   justify-content:space-between;
@@ -84,19 +96,33 @@ section{padding:110px 0}
    3. HEADER / NAVBAR
 ================================*/
 .main-header{
-  position:sticky;
-  top:42;
+  position:relative;
+  width:100%;
   background:#fff;
-  z-index:9999;
-  box-shadow:0 4px 25px rgba(0,0,0,.08);
-  border-bottom:1px solid #e5e5e5;
+  z-index:40;
+  transition:.35s ease;
 }
+/* ===== STICKY HEADER (TANYA STYLE) ===== */
+.main-header.sticky{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  box-shadow:0 6px 30px rgba(0,0,0,.12);
+  animation:slideDown .35s ease;
+}
+
+@keyframes slideDown{
+  from{transform:translateY(-100%)}
+  to{transform:translateY(0)}
+}
+
 
 .navbar{
   display:flex;
   align-items:center;
   justify-content:space-between;
-  height:78px;
+  height:95px;
   padding:0 10px;
 }
 
@@ -107,7 +133,7 @@ section{padding:110px 0}
 }
 
 .logo img{
-  height:72px;           /* desktop size */
+  height:78px;           /* desktop size */
   width:auto;
   filter: contrast(1.08) saturate(1.05);
 }
@@ -119,12 +145,13 @@ section{padding:110px 0}
   gap:45px;
 }
 
-.menu a{
+  .menu a{
   text-decoration:none;
-  color:#222;
+  color:var(--dark);
   font-weight:600;
   position:relative;
 }
+
 
 .menu a::after{
   content:"";
@@ -157,16 +184,21 @@ section{padding:110px 0}
   background:#fff;
   padding:45px;
   box-shadow:0 25px 50px rgba(0,0,0,.15);
+
   opacity:0;
   visibility:hidden;
+  pointer-events:none;   /* ⭐ THIS IS THE MAGIC FIX */
   transition:.25s ease;
 }
+
 
 .has-mega.open .mega-menu{
   opacity:1;
   visibility:visible;
+  pointer-events:auto;   /* ⭐ enable clicks only when open */
   transform:translateX(-50%) translateY(0);
 }
+
 
 .mega-inner{
   display:grid;
@@ -186,16 +218,21 @@ section{padding:110px 0}
   background:
   linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),
   url('../images/ptfe-cable.jpeg') center/cover no-repeat;
-  position:relative; 
-  z-index:1;
-  margin-top:-2px;
+
+  position:relative;
+  z-index:0;     /* ⭐ REMOVE OVERLAY LAYER */
+  margin-top:0;  /* ⭐ REMOVE NEGATIVE MARGIN */
 }
+
+
+
+
 
 
 /* ================= FOOTER ================= */
 
 .footer{
-  background:#1f2933;
+  background:var(--dark);
   color:#fff;
   padding:70px 0 30px;
 }
@@ -271,26 +308,32 @@ section{padding:110px 0}
   flex-direction:row;            /* logo + hamburger in row */
   justify-content:space-between;
   align-items:center;
-  padding:14px 18px;
   position:relative;
-   height:auto;
+   height:70px;
+  padding:0 18px;
 }
 .navbar .btn{
   display:none;
 }
 
 .logo img{
-  height:48px;   /* mobile perfect size */
+  height:48px;
+  transform:scale(1.4);   /* makes logo look bigger */
+  transform-origin:left center;   /* mobile perfect size */
 }
 .logo{
-  margin-top:6px;
+  display:flex;
+  align-items:center;
+  padding-left:6px;
 }
 
   /* SHOW HAMBURGER */
   #hamburger{
-    display:block;
-    margin-top:6px;
+   margin-top:6px;
   margin-bottom:4px;
+  font-size:26px;
+  display:flex;
+  align-items:center;
   }
 
   /* MOBILE DROPDOWN MENU */
@@ -369,7 +412,10 @@ section{padding:110px 0}
   }
 
   .main-header{
-    top:40px;        /* matches mobile topbar height */
+    height:70px;
+  padding:0;
+    
+    /* matches mobile topbar height */
   }
 }
 
@@ -380,4 +426,299 @@ section{padding:110px 0}
   }
 }
 
+/* ===== ORANGE BRAND ACCENT ===== */
+.accent{ color:var(--accent); }
 
+.menu a:hover{
+  color:var(--primary);
+}
+
+.card:hover h3{
+  color:var(--primary);
+}
+
+.btn-outline:hover{
+  background:var(--accent);
+  border-color:var(--accent);
+}
+
+/* ================= CLICKABLE PRODUCT CARDS ================= */
+
+.card{
+  display:block;              /* makes <a> behave like card */
+  text-decoration:none;       /* remove underline */
+  color:inherit;              /* keep text color */
+  cursor:pointer;
+}
+
+.card:hover{
+  transform:translateY(-8px);
+}
+
+/* PRODUCT PAGE LAYOUT */
+.split{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:60px;
+  align-items:center;
+}
+
+.split img{
+  border-radius:14px;
+  box-shadow:0 15px 40px rgba(0,0,0,.15);
+}
+
+@media(max-width:992px){
+  .split{
+    grid-template-columns:1fr;
+  }
+}
+.trust-strip{
+  background:#fff;
+  padding:35px 0;
+  border-bottom:1px solid #eee;
+}
+
+.trust-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  text-align:center;
+  font-weight:600;
+  color:var(--dark);
+}
+
+@media(max-width:992px){
+  .trust-grid{grid-template-columns:1fr 1fr;gap:20px}
+}
+.stats-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  text-align:center;
+}
+.mega-inner a{
+  text-decoration:none;
+  color:var(--dark);
+  font-weight:500;
+  padding:6px 0;
+  display:block;
+}
+
+.mega-inner a:hover{
+  color:var(--primary);
+}
+
+
+
+/* ================= HERO SLIDER ================= */
+
+.hero-slider{
+  padding-top:0;     /* remove fake spacing */
+  height:100vh;
+  background:#000;
+}
+/* move mega menu when header becomes sticky */
+.main-header.sticky .mega-menu{
+  top:95px;
+}
+
+
+
+.swiper-slide{
+  height:100vh;
+  display:flex;
+  align-items:center;
+  color:#fff;
+  background-size:cover;
+  background-position:center;
+  position:relative;
+}
+.swiper-wrapper{
+  height:100vh;
+}
+
+
+.swiper-slide::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,.55);
+}
+
+.hero-content{
+  position:relative;
+  max-width:650px;
+  animation:fadeUp 1s ease;
+}
+
+.hero-content h1{
+  font-size:58px;
+  margin-bottom:20px;
+}
+
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(40px)}
+  to{opacity:1;transform:translateY(0)}
+}
+.swiper-button-next,
+.swiper-button-prev{
+  color:#fff;
+  padding:35px;
+}
+
+.swiper-button-next{ right:30px; }
+.swiper-button-prev{ left:30px; }
+.swiper-slide-active .hero-content{
+  animation:fadeUp 1s ease;
+}
+
+
+/* SLIDE IMAGES */
+.slide1{background:url('../images/hero1.jpg') center/cover no-repeat;}
+.slide2{background:url('../images/hero2.jpg') center/cover no-repeat;}
+.slide3{background:url('../images/hero3.jpg') center/cover no-repeat;}
+/* ================= PRODUCT CATEGORIES ================= */
+
+.categories{
+  background:#fff;
+  text-align:center;
+}
+
+.text-center{text-align:center}
+
+.category-grid{
+  margin-top:50px;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:25px;
+}
+
+.category-card{
+  position:relative;
+  height:260px;
+  display:flex;
+  align-items:flex-end;
+  padding:25px;
+  color:#fff;
+  text-decoration:none;
+  font-size:22px;
+  font-weight:600;
+  overflow:hidden;
+  border-radius:12px;
+  transition:.4s;
+}
+
+.category-card .overlay{
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,.45);
+  transition:.4s;
+}
+
+.category-card h3{
+  position:relative;
+  z-index:2;
+}
+
+.category-card:hover{
+  transform:translateY(-10px);
+}
+
+.category-card:hover .overlay{
+  background:rgba(0,0,0,.2);
+}
+
+/* category images */
+.c1{background:url('../images/cat1.jpg') center/cover}
+.c2{background:url('../images/cat2.jpg') center/cover}
+.c3{background:url('../images/cat3.jpg') center/cover}
+.c4{background:url('../images/cat4.jpg') center/cover}
+.c5{background:url('../images/cat5.jpg') center/cover}
+.c6{background:url('../images/cat6.jpg') center/cover}
+
+/* mobile */
+@media(max-width:992px){
+  .category-grid{
+    grid-template-columns:1fr 1fr;
+  }
+}
+
+@media(max-width:600px){
+  .category-grid{
+    grid-template-columns:1fr;
+  }
+}
+/* ================= FEATURES SECTION ================= */
+
+.features{
+  background:var(--light);
+  text-align:center;
+}
+
+.features-grid{
+  margin-top:50px;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:35px;
+}
+
+.feature{
+  background:#fff;
+  padding:35px;
+  border-radius:12px;
+  box-shadow:0 10px 25px rgba(0,0,0,.06);
+  transition:.4s;
+}
+
+.feature:hover{
+  transform:translateY(-10px);
+}
+
+.feature .icon{
+  font-size:40px;
+  margin-bottom:15px;
+}
+
+/* mobile */
+@media(max-width:992px){
+  .features-grid{
+    grid-template-columns:1fr 1fr;
+  }
+}
+
+@media(max-width:600px){
+  .features-grid{
+    grid-template-columns:1fr;
+  }
+}
+/* ================= CLIENT LOGOS ================= */
+
+.clients{
+  background:#fff;
+  text-align:center;
+}
+
+.logo-slider{
+  overflow:hidden;
+  margin-top:40px;
+}
+
+.logo-track{
+  display:flex;
+  gap:80px;
+  animation:scrollLogos 20s linear infinite;
+}
+
+.logo-track img{
+  height:60px;
+  opacity:.7;
+  transition:.3s;
+}
+
+.logo-track img:hover{
+  opacity:1;
+}
+
+@keyframes scrollLogos{
+  from{transform:translateX(0)}
+  to{transform:translateX(-50%)}
+}

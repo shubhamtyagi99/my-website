@@ -12,8 +12,12 @@ content="Ardaas Cables is a premium manufacturer of PTFE, high temperature and i
 <link rel="icon" href="images/ardaas-cables-logo.svg">
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
 <link rel="stylesheet" href="css/style.css">
 
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
 
 
 </head>
@@ -23,17 +27,92 @@ content="Ardaas Cables is a premium manufacturer of PTFE, high temperature and i
   <!-- SHARED HEADER -->
   <div id="site-header"></div>
 
-  <section class="hero">
-  <div class="container">
-    <h1>Leading Manufacturer of<br>PTFE & High Temperature Cables</h1>
-    <p>Trusted by industries, OEMs and distributors across India for high-performance cable solutions.</p>
+  <!-- HERO SLIDER -->
+<section class="hero-slider swiper">
+  
+  <div class="swiper-wrapper">
 
-    <div style="margin-top:30px">
-      <a href="contact.html" class="btn btn-primary">Send Enquiry</a>
-      <a href="#" class="btn btn-outline">Download Catalogue</a>
+    <!-- SLIDE 1 -->
+    <div class="swiper-slide slide1">
+      <div class="hero-content container">
+        <h1>Leading Cable Manufacturer</h1>
+        <p>Delivering Quality, Innovation & Trust Worldwide</p>
+        <a href="products.html" class="btn btn-primary">Our Products</a>
+      </div>
+    </div>
+
+    <!-- SLIDE 2 -->
+    <div class="swiper-slide slide2">
+      <div class="hero-content container">
+        <h1>Advanced Manufacturing</h1>
+        <p>State of the art infrastructure & technology</p>
+        <a href="about.html" class="btn btn-primary">About Us</a>
+      </div>
+    </div>
+
+    <!-- SLIDE 3 -->
+    <div class="swiper-slide slide3">
+      <div class="hero-content container">
+        <h1>Trusted Across India</h1>
+        <p>Reliable cables for every industry</p>
+        <a href="contact.html" class="btn btn-primary">Contact Us</a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- arrows -->
+  <div class="swiper-button-next"></div>
+  <div class="swiper-button-prev"></div>
+
+  <!-- dots -->
+  <div class="swiper-pagination"></div>
+
+</section>
+
+
+<!-- PRODUCT CATEGORIES -->
+<section class="categories">
+  <div class="container">
+    <h2 class="text-center">Our Product Range</h2>
+
+    <div class="category-grid">
+
+      <a href="products.html" class="category-card c1">
+        <div class="overlay"></div>
+        <h3>House Wires</h3>
+      </a>
+
+      <a href="products.html" class="category-card c2">
+        <div class="overlay"></div>
+        <h3>Power Cables</h3>
+      </a>
+
+      <a href="products.html" class="category-card c3">
+        <div class="overlay"></div>
+        <h3>Solar Cables</h3>
+      </a>
+
+      <a href="products.html" class="category-card c4">
+        <div class="overlay"></div>
+        <h3>Control Cables</h3>
+      </a>
+
+      <a href="products.html" class="category-card c5">
+        <div class="overlay"></div>
+        <h3>Submersible Cables</h3>
+      </a>
+
+      <a href="products.html" class="category-card c6">
+        <div class="overlay"></div>
+        <h3>Industrial Cables</h3>
+      </a>
+
     </div>
   </div>
 </section>
+
+
 
 <section>
   <div class="container" style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center">
@@ -53,59 +132,81 @@ content="Ardaas Cables is a premium manufacturer of PTFE, high temperature and i
 
   </div>
 </section>
-<section style="background:#F7F9FB">
-  <div class="container" style="text-align:center">
-    <h2>Our Product Range</h2>
-  </div>
+<!-- WHY CHOOSE US -->
+<section class="features">
+  <div class="container">
 
-  <div class="container product-grid">
-    <div class="card-custom">PTFE Cables</div>
-    <div class="card-custom">High Temperature Cables</div>
-    <div class="card-custom">FEP Cables</div>
-    <div class="card-custom">Thermocouple Cables</div>
-  </div>
-</section>
-<section>
-  <div class="container" style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center">
+    <h2 class="text-center">Why Choose Ardaas Cables</h2>
 
-    <div>
-      <img src="images/ptfe-cable.jpeg" alt="Manufacturing">
+    <div class="features-grid">
+
+      <div class="feature">
+        <div class="icon">⚡</div>
+        <h3>Premium Quality</h3>
+        <p>High grade copper & insulation ensuring durability.</p>
+      </div>
+
+      <div class="feature">
+        <div class="icon">🏭</div>
+        <h3>Modern Infrastructure</h3>
+        <p>Advanced manufacturing & automated production.</p>
+      </div>
+
+      <div class="feature">
+        <div class="icon">✔</div>
+        <h3>Strict Testing</h3>
+        <p>Every cable passes multi-stage quality testing.</p>
+      </div>
+
+      <div class="feature">
+        <div class="icon">🚚</div>
+        <h3>On-Time Delivery</h3>
+        <p>Reliable logistics across India.</p>
+      </div>
+
+      <div class="feature">
+        <div class="icon">👨‍💼</div>
+        <h3>Expert Support</h3>
+        <p>Dedicated technical and customer assistance.</p>
+      </div>
+
+      <div class="feature">
+        <div class="icon">💰</div>
+        <h3>Competitive Pricing</h3>
+        <p>Best value without compromising quality.</p>
+      </div>
+
     </div>
+  </div>
+</section>
 
-    <div>
-      <h2>Quality Manufacturing</h2>
-      <p>
-        Our cables are produced using advanced manufacturing processes
-        and strict quality checks to ensure reliability.
-      </p>
+<!-- CLIENT LOGOS -->
+<section class="clients">
+  <div class="container">
+    <h2 class="text-center">Trusted By</h2>
+
+    <div class="logo-slider">
+      <div class="logo-track">
+        <img src="images/client1.png">
+        <img src="images/client2.png">
+        <img src="images/client3.png">
+        <img src="images/client4.png">
+        <img src="images/client5.png">
+        <img src="images/client6.png">
+
+        <!-- duplicate for smooth loop -->
+        <img src="images/client1.png">
+        <img src="images/client2.png">
+        <img src="images/client3.png">
+        <img src="images/client4.png">
+        <img src="images/client5.png">
+        <img src="images/client6.png">
+      </div>
     </div>
-
   </div>
 </section>
-<section style="background:#F7F9FB">
-  <div class="container" style="text-align:center">
-    <h2>Industries We Serve</h2>
-  </div>
 
-  <div class="container product-grid">
-    <div class="card-custom">Automotive</div>
-    <div class="card-custom">Electronics</div>
-    <div class="card-custom">Energy</div>
-    <div class="card-custom">Railways</div>
-  </div>
-</section>
-<section>
-  <div class="container" style="text-align:center">
-    <h2>Our Process</h2>
-  </div>
 
-  <div class="container product-grid">
-    <div class="card-custom">Design</div>
-    <div class="card-custom">Manufacturing</div>
-    <div class="card-custom">Testing</div>
-    <div class="card-custom">Delivery</div>
-  </div>
-</section>
 <!-- <section style="background:#2f6f5e;color:#fff;text-align:center">
   <div class="container">
     <h2>Download Product Catalogue</h2>
@@ -140,69 +241,7 @@ content="Ardaas Cables is a premium manufacturer of PTFE, high temperature and i
   </div>
 </section>-->
 
-
-
-  <!-- PRODUCTS -->
-  <section>
-  <div class="container" style="text-align:center">
-    <h2>Our Product Range</h2>
-    <p>High performance cables engineered for demanding industrial environments.</p>
-  </div>
-
-  <div class="container product-grid">
-
-    <div class="card-custom">
-      <h3>PTFE Cables</h3>
-      <p>High temperature & chemical resistant cables.</p>
-    </div>
-
-    <div class="card-custom">
-      <h3>FEP Cables</h3>
-      <p>Flexible & flame resistant wiring solutions.</p>
-    </div>
-
-    <div class="card-custom">
-      <h3>Thermocouple Cables</h3>
-      <p>Precision cables for temperature sensing.</p>
-    </div>
-
-    <div class="card-custom">
-      <h3>Battery & EV Cables</h3>
-      <p>Reliable wiring for modern EV applications.</p>
-    </div>
-
-  </div>
-</section>
-<section style="background:#F7F9FB">
-  <div class="container" style="text-align:center">
-    <h2>Why Choose Ardaas Cables</h2>
-  </div>
-
-  <div class="container product-grid">
-
-    <div>
-      <h3>Premium Quality</h3>
-      <p>Manufactured using international standards & high-grade materials.</p>
-    </div>
-
-    <div>
-      <h3>Custom Solutions</h3>
-      <p>We manufacture cables as per client specifications.</p>
-    </div>
-
-    <div>
-      <h3>Fast Delivery</h3>
-      <p>Efficient production & nationwide logistics network.</p>
-    </div>
-
-    <div>
-      <h3>Technical Support</h3>
-      <p>Expert team to help choose the right cable solutions.</p>
-    </div>
-
-  </div>
-</section>
-<section style="text-align:center">
+<!--<section style="text-align:center">
   <div class="container">
     <h2>Looking for High Performance Industrial Cables?</h2>
     <p>Contact our team today to get a customised quote.</p>
@@ -213,6 +252,15 @@ content="Ardaas Cables is a premium manufacturer of PTFE, high temperature and i
     </div>
   </div>
 </section>
+<section style="background:var(--light)">
+  <div class="container stats-grid">
+    <div><h2>15+</h2><p>Product Types</p></div>
+    <div><h2>50+</h2><p>Industrial Clients</p></div>
+    <div><h2>10+</h2><p>Years Experience</p></div>
+    <div><h2>24/7</h2><p>Support</p></div>
+  </div>
+</section>
+
 
 
   <!-- SHARED FOOTER -->
@@ -220,5 +268,8 @@ content="Ardaas Cables is a premium manufacturer of PTFE, high temperature and i
 
   <!-- JS -->
   <script src="js/main.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
 </body>
 </html>
