@@ -163,3 +163,15 @@ window.addEventListener("DOMContentLoaded", () => {
     }
   }
 });
+// Contact form success message
+(function () {
+  const params = new URLSearchParams(window.location.search);
+  const successBox = document.getElementById("successMessage");
+
+  if (params.get("success") === "true" && successBox) {
+    successBox.style.display = "block";
+
+    // Clean URL after showing message
+    window.history.replaceState({}, document.title, window.location.pathname);
+  }
+})();

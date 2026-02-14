@@ -36,13 +36,26 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
     <!-- FORM -->
     <div class="contact-form">
       <h2>Send Enquiry</h2>
+      <!-- SUCCESS MESSAGE -->
+  <div id="successMessage" style="
+    display:none;
+    background:#d4edda;
+    color:#155724;
+    padding:15px;
+    border-radius:6px;
+    margin-bottom:20px;
+    text-align:center;
+    font-weight:600;">
+    ✅ Enquiry sent successfully! Our team will contact you soon.
+  </div>
 
       <form action="https://formsubmit.co/info@ardaascables.com" method="POST">
 
         <!-- required hidden fields -->
         <input type="hidden" name="_captcha" value="false">
         <input type="hidden" name="_subject" value="New Enquiry from Website">
-        <input type="hidden" name="_next" value="https://google.com">
+        <input type="hidden" name="_next" value="https://ardaascables.com/contact.html?success=true">
+
 
         <div class="form-row">
           <input type="text" name="name" placeholder="Your Name" required>

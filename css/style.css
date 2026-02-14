@@ -133,9 +133,10 @@ section{padding:130px 0}
 }
 
 .logo img{
-  height:78px;           /* desktop size */
+  height:95px;              /* keep container size same */
   width:auto;
-  filter: contrast(1.08) saturate(1.05);
+  transform:scale(1.35);    /* makes logo visually bigger */
+  transform-origin:left center;
 }
 
 
@@ -293,11 +294,12 @@ section{padding:130px 0}
   display:none;
 }
 
-.logo img{
-  height:48px;
-  transform:scale(1.4);   /* makes logo look bigger */
-  transform-origin:left center;   /* mobile perfect size */
+ .logo img{
+  height:60px;
+  transform:scale(1.6);     /* much bigger visually */
+  transform-origin:left center;
 }
+
 .logo{
   display:flex;
   align-items:center;
