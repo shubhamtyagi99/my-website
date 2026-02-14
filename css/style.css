@@ -26,15 +26,15 @@ section,
 
 /* TYPOGRAPHY SCALE */
 h1{font-size:54px;line-height:1.1;font-weight:600}
-h2{font-size:36px;
+h2{font-size:40px;
   font-weight:600;
-  margin-bottom:28px;
-  letter-spacing:.4px;
+  margin-bottom:18px;
+  letter-spacing:.3px;
   color:#1f2933;
-
 }
 h3{font-size:28px;font-weight:600}
-p{font-size:17px;color:#b1e9da}
+p{font-size:17px;color:#555}
+
 
 /* GLOBAL CONTAINER */
 .container{
@@ -43,7 +43,7 @@ p{font-size:17px;color:#b1e9da}
   padding:0 24px;
 }
 
-section{padding:110px 0}
+section{padding:130px 0}
 
 
 /* BUTTONS */
@@ -206,29 +206,6 @@ section{padding:110px 0}
   gap:20px;
 }
 
-
-/* ===============================
-   5. HERO BASE
-================================*/
-.hero{
-  min-height:85vh;
-  display:flex;
-  align-items:center;
-  color:#fff;
-  background:
-  linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),
-  url('../images/ptfe-cable.jpeg') center/cover no-repeat;
-
-  position:relative;
-  z-index:0;     /* ⭐ REMOVE OVERLAY LAYER */
-  margin-top:0;  /* ⭐ REMOVE NEGATIVE MARGIN */
-}
-
-
-
-
-
-
 /* ================= FOOTER ================= */
 
 .footer{
@@ -376,11 +353,6 @@ section{padding:110px 0}
     transition:max-height .4s ease;
   }
 
-  .has-mega.mobile-open .mega-menu{
-    max-height:500px;
-    padding-top:10px;
-  }
-
   .mega-inner{
     grid-template-columns:1fr;
     gap:8px;
@@ -516,10 +488,7 @@ section{padding:110px 0}
   height:100vh;
   background:#000;
 }
-/* move mega menu when header becomes sticky */
-.main-header.sticky .mega-menu{
-  top:95px;
-}
+
 
 
 
@@ -531,6 +500,7 @@ section{padding:110px 0}
   background-size:cover;
   background-position:center;
   position:relative;
+  padding-top:80px;
 }
 .swiper-wrapper{
   height:100vh;
@@ -546,31 +516,30 @@ section{padding:110px 0}
 
 .hero-content{
   position:relative;
-  max-width:650px;
-  animation:fadeUp 1s ease;
+  max-width:720px;
+  padding-top:40px;
 }
 
 .hero-content h1{
-  font-size:58px;
-  margin-bottom:20px;
+  font-size:64px;
+  line-height:1.1;
+  margin-bottom:24px;
+  letter-spacing:-0.5px;
+}
+.hero-content p{
+  font-size:20px;
+  max-width:520px;
+  margin-bottom:32px;
+  color: #b1e9da;
+}
+.hero-content .btn{
+  margin-right:14px;
 }
 
 @keyframes fadeUp{
   from{opacity:0;transform:translateY(40px)}
   to{opacity:1;transform:translateY(0)}
 }
-.swiper-button-next,
-.swiper-button-prev{
-  color:#fff;
-  padding:35px;
-}
-
-.swiper-button-next{ right:30px; }
-.swiper-button-prev{ left:30px; }
-.swiper-slide-active .hero-content{
-  animation:fadeUp 1s ease;
-}
-
 
 /* SLIDE IMAGES */
 .slide1{background:url('../images/hero1.jpg') center/cover no-repeat;}
@@ -586,7 +555,7 @@ section{padding:110px 0}
 .text-center{text-align:center}
 
 .category-grid{
-  margin-top:50px;
+  margin-top:70px;
   display:grid;
   grid-template-columns:repeat(3,1fr);
   gap:25px;
@@ -594,7 +563,7 @@ section{padding:110px 0}
 
 .category-card{
   position:relative;
-  height:260px;
+  height:300px;
   display:flex;
   align-items:flex-end;
   padding:25px;
@@ -610,21 +579,30 @@ section{padding:110px 0}
 .category-card .overlay{
   position:absolute;
   inset:0;
-  background:rgba(0,0,0,.45);
+  background:linear-gradient(
+    to top,
+    rgba(0,0,0,.75) 10%,
+    rgba(0,0,0,.2) 60%,
+    rgba(0,0,0,.1) 100%
+  );
   transition:.4s;
 }
 
 .category-card h3{
   position:relative;
   z-index:2;
+  font-size:26px;
+  font-weight:600;
+  letter-spacing:.3px;
 }
 
 .category-card:hover{
-  transform:translateY(-10px);
+  transform:translateY(-12px) scale(1.02);
+  box-shadow:0 25px 50px rgba(0,0,0,.25);
 }
 
 .category-card:hover .overlay{
-  background:rgba(0,0,0,.2);
+  opacity:.85;
 }
 
 /* category images */
@@ -779,4 +757,50 @@ section{padding:110px 0}
   .form-row{
     grid-template-columns:1fr;
   }
+}
+.product-section{
+  border-bottom:1px solid #eee;
+  scroll-margin-top:120px;
+}
+
+.product-section:nth-child(even){
+  background:#fafafa;
+}
+/* make slide relative so overlay can sit inside */
+.swiper-slide{
+  position:relative;
+  overflow:hidden;
+}
+
+/* green diagonal industrial overlay */
+.hero-shape{
+  position:absolute;
+  right:-120px;
+  top:0;
+  width:55%;
+  height:100%;
+  background:linear-gradient(
+      135deg,
+      rgba(47,143,117,.95),
+      rgba(31,110,90,.95)
+  );
+  transform:skewX(-25deg);
+  z-index:1;
+}
+
+/* keep text above shape */
+.hero-content{
+  position:relative;
+  z-index:2;
+  max-width:650px;
+}
+@media(max-width:992px){
+
+  .hero-shape{
+    width:90%;
+    right:-220px;
+    transform:skewX(-20deg);
+    opacity:.9;
+  }
+
 }

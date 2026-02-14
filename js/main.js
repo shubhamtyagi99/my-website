@@ -29,14 +29,29 @@ document.addEventListener("DOMContentLoaded", loadHeaderFooter);
 /* ================= MOBILE MENU ================= */
 
 function initMobileMenu(){
+
   const hamburger = document.getElementById("hamburger");
   const menu = document.querySelector(".menu");
+  const productsLink = document.getElementById("mobileProductsToggle");
+  const megaParent = document.querySelector(".has-mega");
 
   if(!hamburger || !menu) return;
 
+  // 🍔 Toggle mobile menu
   hamburger.addEventListener("click", ()=>{
     menu.classList.toggle("open");
   });
+
+  // 📱 MOBILE: Products should open products page (not accordion)
+  if(productsLink){
+    productsLink.addEventListener("click", (e)=>{
+      if(window.innerWidth <= 992){
+        // allow normal navigation → products.html
+        window.location.href = "products.html";
+      }
+    });
+  }
+
 }
 
 
@@ -133,3 +148,18 @@ window.addEventListener("scroll", function () {
   }
 });
 
+/* Highlight section when opened via anchor */
+window.addEventListener("DOMContentLoaded", () => {
+  const hash = window.location.hash;
+  if(hash){
+    const section = document.querySelector(hash);
+    if(section){
+      section.style.transition = "background 0.6s ease";
+      section.style.background = "#fff9e6";
+
+      setTimeout(()=>{
+        section.style.background = "";
+      },1200);
+    }
+  }
+});
