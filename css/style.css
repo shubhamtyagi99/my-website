@@ -325,11 +325,24 @@ section{padding:130px 0}
   background:#fff;
   display:none !important;
   flex-direction:column;
-  padding:20px;
+  padding:15px 20px;
   box-shadow:0 12px 30px rgba(0,0,0,.15);
   z-index:999;
-  gap:18px;
 }
+/* MOBILE MENU ITEM SPACING (professional way) */
+.menu li{
+  border-bottom:1px solid #eee;
+}
+
+.menu li:last-child{
+  border-bottom:none;
+}
+
+.menu a{
+  display:block;
+  padding:14px 0;
+}
+
 
 
   .menu.open{
