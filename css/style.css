@@ -133,7 +133,7 @@ section{padding:130px 0}
 }
 
 .logo img{
-  height:95px;              /* keep container size same */
+  height:120px;              /* keep container size same */
   width:auto;
   transform:scale(1.35);    /* makes logo visually bigger */
   transform-origin:left center;
@@ -177,7 +177,8 @@ section{padding:130px 0}
 
 .mega-menu{
   position:absolute;
-  top:100%;
+  top: calc(100% + 10px);
+  margin-top: 24px;
   left:50%;
   transform:translateX(-50%) translateY(15px);
   width:1200px;
@@ -295,7 +296,7 @@ section{padding:130px 0}
 }
 
  .logo img{
-  height:60px;
+  height:75px;
   transform:scale(1.6);     /* much bigger visually */
   transform-origin:left center;
 }
@@ -440,6 +441,8 @@ section{padding:130px 0}
 .split img{
   border-radius:14px;
   box-shadow:0 15px 40px rgba(0,0,0,.15);
+  height: 180px;
+    width: auto;
 }
 
 @media(max-width:992px){
@@ -803,6 +806,77 @@ section{padding:130px 0}
     right:-220px;
     transform:skewX(-20deg);
     opacity:.9;
+  }
+
+}
+/* ================= ABOUT PAGE ================= */
+
+.about-page{
+  background:var(--light);
+  padding:120px 0 80px;
+  text-align:center;
+}
+
+.about-container{
+  max-width:820px;
+}
+
+.about-page h1{
+  margin-bottom:35px;
+}
+
+.about-text p{
+  font-size:18px;
+  margin-bottom:22px;
+  line-height:1.8;
+}
+
+.about-highlight{
+  font-size:19px;
+  color:var(--dark);
+  font-weight:500;
+}
+
+/* ===== VISION CARD ===== */
+
+.vision-section{
+  background:#fff;
+  padding:70px 0 120px;
+}
+
+.vision-card{
+  max-width:720px;
+  margin:auto;
+  background:#fff;
+  padding:55px;
+  border-radius:16px;
+  box-shadow:0 20px 45px rgba(0,0,0,.08);
+  text-align:center;
+}
+
+.vision-card h2{
+  margin-bottom:18px;
+}
+@media(max-width:768px){
+
+  .about-page{
+    padding:80px 0 50px;
+  }
+
+  .about-page h1{
+    font-size:32px;
+  }
+
+  .about-text p{
+    font-size:16px;
+  }
+
+  .vision-card{
+    padding:35px 22px;
+  }
+
+  .vision-card h2{
+    font-size:28px;
   }
 
 }

@@ -91,6 +91,16 @@ function initMegaMenu(){
     megaItem.classList.remove("open");
   });
 
+
+  /* ⭐ NEW CODE — CLOSE MENU WHEN LINK CLICKED ⭐ */
+  const megaLinks = megaMenu.querySelectorAll("a");
+
+  megaLinks.forEach(link => {
+    link.addEventListener("click", () => {
+      megaItem.classList.remove("open");
+    });
+  });
+
 }
 
 
@@ -148,21 +158,38 @@ window.addEventListener("scroll", function () {
   }
 });
 
-/* Highlight section when opened via anchor */
-window.addEventListener("DOMContentLoaded", () => {
-  const hash = window.location.hash;
-  if(hash){
-    const section = document.querySelector(hash);
-    if(section){
-      section.style.transition = "background 0.6s ease";
-      section.style.background = "#fff9e6";
+/* ===== PRODUCT PAGE ANCHOR SCROLL + HIGHLIGHT ===== */
+window.addEventListener("load", () => {
 
-      setTimeout(()=>{
-        section.style.background = "";
-      },1200);
-    }
-  }
+  const hash = window.location.hash;
+  if(!hash) return;
+
+  const section = document.querySelector(hash);
+  const header = document.querySelector(".main-header");
+
+  if(!section) return;
+
+  // wait for header to become sticky + fully load
+  setTimeout(() => {
+
+    const headerHeight = header ? header.offsetHeight : 100;
+
+    // scroll with offset (prevents navbar overlap)
+    const y = section.getBoundingClientRect().top + window.pageYOffset - headerHeight - 20;
+    window.scrollTo({ top: y, behavior: "smooth" });
+
+    // highlight animation
+    section.style.transition = "background 0.8s ease";
+    section.style.background = "#fff9e6";
+
+    setTimeout(()=>{
+      section.style.background = "";
+    },1500);
+
+  }, 300);
+
 });
+
 // Contact form success message
 (function () {
   const params = new URLSearchParams(window.location.search);
